@@ -120,6 +120,7 @@ function Game() {
     setShowConfirmation(false);
     setTempPrize(null);
     setHasStartedGame(false);
+    setWonOnLastGuess(false);
     
     // Simulate loading delay
     setTimeout(() => {
@@ -196,6 +197,7 @@ function Game() {
     if (claim) {
       claimPrize(tempPrize);
       playSound(winSoundRef.current);
+      resetGame(); // Reset the game after claiming the prize
     } else {
       addToUnclaimedPrizes(tempPrize);
     }
@@ -220,6 +222,7 @@ function Game() {
         autoClose: 1500,
       });
     }
+    // The game will be reset in handleConfirm, so we don't need to call resetGame() here
   }
 
   const addToUnclaimedPrizes = (prize) => {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ClockIcon, PlusCircleIcon, SparklesIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '../components/LoadingSpinner'
+import { FiPlus } from "react-icons/fi";
 
 const multipliers = [
   { duration: '1 hour', price: 1000, icon: <ClockIcon className="w-6 h-6" /> },
@@ -61,8 +62,9 @@ function Store() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-yellow-500 text-gray-900 rounded-full font-semibold hover:bg-yellow-400 transition-colors duration-200"
-            >
+              className="px-4 py-2 bg-yellow-500 text-gray-900 flex flex-row items-center justify-center rounded-full font-semibold hover:bg-yellow-400 transition-colors duration-200"
+                      >
+            <FiPlus className='mr-2'/>
               Add MOXIE
             </motion.button>
           </div>
@@ -81,6 +83,9 @@ function Store() {
                 className="bg-gray-700 rounded-lg p-4 flex flex-col items-center justify-between shadow-md"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 {item.icon}
                 <h3 className="text-lg font-semibold my-2">{item.duration}</h3>
@@ -109,6 +114,9 @@ function Store() {
                 className="bg-gray-700 rounded-lg p-4 flex flex-col items-center justify-between shadow-md"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 {item.icon}
                 <h3 className="text-lg font-semibold my-2">{item.type}</h3>

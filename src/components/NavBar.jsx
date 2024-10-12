@@ -2,10 +2,13 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HomeIcon, ShoppingBagIcon, ChartBarIcon, BookOpenIcon, UserCircleIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { IoGameControllerOutline } from "react-icons/io5";
+import { useTheme } from '../ThemeContext'
 
 function NavBar({ toggleMenu, isMenuOpen }) {
+  const { isDarkMode } = useTheme();
+
   return (
-    <nav className="bg-gray-800 shadow-lg">
+    <nav className={`bg-gray-200 dark:bg-gray-800 shadow-lg transition-colors duration-200 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -71,10 +74,6 @@ function NavBar({ toggleMenu, isMenuOpen }) {
               <Link to="/store" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
                 <ShoppingBagIcon className="h-6 w-6 inline-block mr-2" />
                 Store
-              </Link>
-              <Link to="/leaderboard" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
-                <ChartBarIcon className="h-6 w-6 inline-block mr-2" />
-                Leaderboard
               </Link>
               <Link to="/inventory" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
                 <BookOpenIcon className="h-6 w-6 inline-block mr-2" />
