@@ -12,6 +12,15 @@ export default {
         'accent-purple': '#9f7aea',
         'accent-pink': '#ed64a6',
       },
+      filter: ['grayscale'],
+      contrast: {
+        200: '2',
+      },
+    },
+  },
+  variants: {
+    extend: {
+      filter: ['hover', 'focus'],
     },
   },
   plugins: [],

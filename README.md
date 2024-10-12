@@ -1,12 +1,50 @@
-# React + Vite
+# Moxie Miner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Moxie Miner is an exciting puzzle game where players discover hidden treasures and collect Fan Tokens. Built with React and styled with Tailwind CSS, this game offers an engaging and visually appealing experience.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Interactive grid-based gameplay
+- Collect MOXIE and Fan Tokens
+- Adjustable grid size for varied difficulty
+- Sound effects (toggleable)
+- Responsive design for desktop and mobile
+- Animated background and UI elements
 
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm (v6 or later)
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/moxie-miner.git
+   cd moxie-miner
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173` (or the port shown in your terminal).
+
+## Building for Production
+
+To create a production build, run:
+
+```
+npm run build
+```
 
 In-game Items: 
 1. Multiplier - 1hr, 3hr, 8hr, 12hr, 1day, monthly
