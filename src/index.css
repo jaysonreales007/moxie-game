@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+@layer utilities {
+  .pt-full {
+    padding-top: 100%;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
