@@ -26,7 +26,7 @@ function Home() {
       <motion.div 
         className="absolute inset-0 z-0"
         initial={{ opacity: 0, scale: 2 }}
-        animate={{ opacity: 0.3, scale: 1 }}
+        animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         style={{
           backgroundImage: 'url("/moxie-4.png")',

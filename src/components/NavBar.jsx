@@ -52,7 +52,6 @@ function NavBar({ toggleMenu, isMenuOpen }) {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -68,7 +67,7 @@ function NavBar({ toggleMenu, isMenuOpen }) {
                 Home
               </Link>
               <Link to="/game" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
-                <ShoppingBagIcon className="h-6 w-6 inline-block mr-2" />
+                <IoGameControllerOutline className="h-6 w-6 inline-block mr-2" />
                 Game
               </Link>
               <Link to="/store" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
