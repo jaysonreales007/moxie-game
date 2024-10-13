@@ -1,0 +1,27 @@
+{
+  "profile": {
+    "title": "Profil",
+    "profileSettings": "Paramètres du Profil",
+    "advancedSettings": "Paramètres Avancés",
+    "username": "Nom d'Utilisateur",
+    "email": "Email",
+    "saveChanges": "Enregistrer les Modifications",
+    "language": "Langue",
+    "twoFactorAuth": "Authentification à Deux Facteurs",
+    "saveAdvancedSettings": "Enregistrer les Paramètres Avancés"
+  },
+  "inventory": {
+    "title": "Inventaire",
+    "moxieBalance": "Solde MOXIE",
+    "fanTokens": "Fan Tokens"
+  },
+  "store": {
+    "title": "Magasin",
+    "balance": "Solde",
+    "addMoxie": "Ajouter MOXIE",
+    "multipliers": "Multiplicateurs",
+    "multipliersDescription": "Tous les multiplicateurs augmentent vos chances d'obtenir des Fan Tokens de 15% !",
+    "guessChances": "Chances de Deviner",
+    "purchase": "Acheter"
+  }
+}

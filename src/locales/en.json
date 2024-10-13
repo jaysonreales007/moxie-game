@@ -1,0 +1,27 @@
+{
+  "profile": {
+    "title": "Profile",
+    "profileSettings": "Profile Settings",
+    "advancedSettings": "Advanced Settings",
+    "username": "Username",
+    "email": "Email",
+    "saveChanges": "Save Changes",
+    "language": "Language",
+    "twoFactorAuth": "Two-Factor Authentication",
+    "saveAdvancedSettings": "Save Advanced Settings"
+  },
+  "inventory": {
+    "title": "Inventory",
+    "moxieBalance": "MOXIE Balance",
+    "fanTokens": "Fan Tokens"
+  },
+  "store": {
+    "title": "Store",
+    "balance": "Balance",
+    "addMoxie": "Add MOXIE",
+    "multipliers": "Multipliers",
+    "multipliersDescription": "All multipliers increase your chance to get Fan Tokens by 15%!",
+    "guessChances": "Guess Chances",
+    "purchase": "Purchase"
+  }
+}

@@ -120,7 +120,6 @@ function Game() {
     setShowConfirmation(false);
     setTempPrize(null);
     setHasStartedGame(false);
-    setWonOnLastGuess(false);
     
     // Simulate loading delay
     setTimeout(() => {
@@ -197,7 +196,6 @@ function Game() {
     if (claim) {
       claimPrize(tempPrize);
       playSound(winSoundRef.current);
-      resetGame(); // Reset the game after claiming the prize
     } else {
       addToUnclaimedPrizes(tempPrize);
     }
@@ -222,7 +220,6 @@ function Game() {
         autoClose: 1500,
       });
     }
-    // The game will be reset in handleConfirm, so we don't need to call resetGame() here
   }
 
   const addToUnclaimedPrizes = (prize) => {
@@ -302,50 +299,50 @@ function Game() {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <main className="flex-grow flex flex-col md:flex-row gap-8 max-w-7xl mx-auto w-full p-4 md:p-8">
-          <aside className="md:w-1/3 space-y-6">
-            <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
-              <h2 className="text-2xl font-bold mb-4 flex items-center">
-                <CurrencyDollarIcon className="h-6 w-6 text-yellow-400 mr-2" />
+        <main className="flex-grow flex flex-col lg:flex-row gap-4 lg:gap-8 max-w-7xl mx-auto w-full p-4 lg:p-8">
+          <aside className="lg:w-1/3 space-y-4 lg:space-y-6">
+            <div className="bg-gray-800 rounded-xl p-4 lg:p-6 shadow-lg">
+              <h2 className="text-xl lg:text-2xl font-bold mb-4 flex items-center">
+                <CurrencyDollarIcon className="h-5 w-5 lg:h-6 lg:w-6 text-yellow-400 mr-2" />
                 Balances
               </h2>
               <div className="space-y-4">
                 <div>
-                  <p className="text-gray-400">MOXIE</p>
-                  <p className="text-2xl font-bold">{moxieBalance}</p>
+                  <p className="text-sm lg:text-base text-gray-400">MOXIE</p>
+                  <p className="text-xl lg:text-2xl font-bold">{moxieBalance}</p>
                 </div>
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
-                {/* <div>
-                  <label htmlFor="fanTokenBalance" className="block text-gray-400 mb-1">
+                <hr className="h-px my-4 lg:my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
+                <div>
+                  <label htmlFor="fanTokenBalance" className="block text-sm lg:text-base text-gray-400 mb-1">
                     Fan Tokens
                   </label>
                   <select
                     id="fanTokenBalance"
-                    className="w-full bg-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    className="w-full bg-gray-700 rounded-lg p-2 text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:outline-none"
                   >
                     {Object.entries(fanTokenBalances).map(([token, balance]) => (
                       <option key={token} value={token}>{token}: {balance}</option>
                     ))}
                   </select>
-                </div> */}
+                </div>
               </div>
             </div>
 
-            <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
-              <h2 className="text-2xl font-bold mb-4 flex items-center">
-                <CogIcon className="h-6 w-6 text-purple-400 mr-2" />
+            <div className="bg-gray-800 rounded-xl p-4 lg:p-6 shadow-lg">
+              <h2 className="text-xl lg:text-2xl font-bold mb-4 flex items-center">
+                <CogIcon className="h-5 w-5 lg:h-6 lg:w-6 text-purple-400 mr-2" />
                 Game Settings
               </h2>
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="gridSize" className="block text-gray-400 mb-1">
+                  <label htmlFor="gridSize" className="block text-sm lg:text-base text-gray-400 mb-1">
                     Grid Size
                   </label>
                   <select
                     id="gridSize"
                     value={gridSize}
                     onChange={handleGridSizeChange}
-                    className="w-full bg-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    className="w-full bg-gray-700 rounded-lg p-2 text-sm lg:text-base focus:ring-2 focus:ring-purple-500 focus:outline-none"
                   >
                     {Array.from({ length: MAX_GRID_SIZE - MIN_GRID_SIZE + 1 }, (_, i) => i + MIN_GRID_SIZE).map(size => (
                       <option key={size} value={size}>{size}x{size}</option>
@@ -353,7 +350,7 @@ function Game() {
                   </select>
                 </div>
                 <button
-                  className={`w-full py-2 px-4 bg-purple-600 text-white font-bold rounded-lg transition-colors duration-200 ${
+                  className={`w-full py-2 px-4 bg-purple-600 text-white font-bold rounded-lg text-sm lg:text-base transition-colors duration-200 ${
                     hasStartedGame ? 'hover:bg-purple-700' : 'opacity-50 cursor-not-allowed'
                   }`}
                   onClick={handleResetGame}
@@ -362,22 +359,22 @@ function Game() {
                   Reset Game
                 </button>
                 <button
-                  className="w-full py-2 px-4 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-lg transition-colors duration-200"
+                  className="w-full py-2 px-4 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-lg text-sm lg:text-base transition-colors duration-200"
                   onClick={handleNewGame}
                 >
                   New Game
                 </button>
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
+                <hr className="h-px my-4 lg:my-8 bg-gray-200 border-0 dark:bg-gray-700"/>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-400">Sound Effects</span>
+                  <span className="text-sm lg:text-base text-gray-400">Sound Effects</span>
                   <button
                     onClick={toggleSound}
                     className="p-2 bg-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500"
                   >
                     {soundEnabled ? (
-                      <SpeakerWaveIcon className="h-6 w-6 text-purple-400" />
+                      <SpeakerWaveIcon className="h-5 w-5 lg:h-6 lg:w-6 text-purple-400" />
                     ) : (
-                      <SpeakerXMarkIcon className="h-6 w-6 text-gray-400" />
+                      <SpeakerXMarkIcon className="h-5 w-5 lg:h-6 lg:w-6 text-gray-400" />
                     )}
                   </button>
                 </div>
@@ -385,16 +382,16 @@ function Game() {
             </div>
           </aside>
 
-          <section className="md:w-2/3">
-            <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
-              <div className="flex justify-between items-center mb-6">
+          <section className="lg:w-2/3">
+            <div className="bg-gray-800 rounded-xl p-4 lg:p-6 shadow-lg">
+              <div className="flex justify-between items-center mb-4 lg:mb-6">
                 <div className="flex items-center space-x-2">
-                  <SparklesIcon className="h-6 w-6 text-blue-400" />
-                  <span className="text-2xl font-bold">Guesses Left: {guessesLeft}</span>
+                  <SparklesIcon className="h-5 w-5 lg:h-6 lg:w-6 text-blue-400" />
+                  <span className="text-xl lg:text-2xl font-bold">Guesses Left: {guessesLeft}</span>
                 </div>
                 {unclaimedPrizes.length > 0 && (
                   <button
-                    className={`px-4 py-2 bg-green-600 text-white font-bold rounded-lg transition-colors duration-200 ${
+                    className={`px-3 py-1 lg:px-4 lg:py-2 bg-green-600 text-white font-bold rounded-lg text-sm lg:text-base transition-colors duration-200 ${
                       guessesLeft > 0 || wonOnLastGuess ? 'hover:bg-green-700' : 'opacity-50 cursor-not-allowed'
                     }`}
                     onClick={claimAllPrizes}
@@ -405,7 +402,7 @@ function Game() {
                 )}
                 {guessesLeft === 0 && !wonOnLastGuess && (
                   <button
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors duration-200"
+                    className="px-3 py-1 lg:px-4 lg:py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg text-sm lg:text-base transition-colors duration-200"
                     onClick={revealAllBoxes}
                   >
                     Reveal All
@@ -414,10 +411,10 @@ function Game() {
               </div>
               
               {unclaimedPrizes.length > 0 && (
-                <div className="mb-6 p-4 bg-gray-700 rounded-lg">
-                  <h3 className="text-lg font-semibold mb-2">Unclaimed Prizes:</h3>
+                <div className="mb-4 lg:mb-6 p-3 lg:p-4 bg-gray-700 rounded-lg">
+                  <h3 className="text-base lg:text-lg font-semibold mb-2">Unclaimed Prizes:</h3>
                   {unclaimedPrizes.map((prize, index) => (
-                    <div key={index} className="flex justify-between items-center mb-2">
+                    <div key={index} className="flex justify-between items-center mb-1 lg:mb-2 text-sm lg:text-base">
                       <span>
                         {prize.type === 'moxie' 
                           ? `${prize.value} MOXIE` 
@@ -428,7 +425,7 @@ function Game() {
                 </div>
               )}
               
-              <div className={`grid gap-2 mb-2`} style={{ gridTemplateColumns: `repeat(${gridSize}, minmax(0, 1fr))` }}>
+              <div className={`grid gap-1 lg:gap-2 mb-2`} style={{ gridTemplateColumns: `repeat(${gridSize}, minmax(0, 1fr))` }}>
                 {grid.map((box, index) => (
                   <motion.button
                     key={index}
@@ -442,11 +439,10 @@ function Game() {
                     whileTap={{ scale: 0.95 }}
                     disabled={guessesLeft === 0}
                   >
-                    {/* Moxie watermark with black and white filter */}
                     {(!box || !box.revealed) && (
                       <div 
                         className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-40 filter grayscale contrast-200"
-                        style={{ backgroundImage: 'url("/moxie-4.png")',backgroundSize: '50%', }}
+                        style={{ backgroundImage: 'url("/moxie-4.png")', backgroundSize: '50%', }}
                       ></div>
                     )}
                     
@@ -454,10 +450,10 @@ function Game() {
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="absolute inset-0 flex items-center justify-center text-2xl"
+                        className="absolute inset-0 flex items-center justify-center text-lg lg:text-2xl"
                       >
                         {box.type === 'fanToken' ? '🏆' : 
-                         box.type === 'moxie' ? <img src="/icon.png" alt="Moxie" className="w-3/4 h-3/4 object-contain" /> : 
+                         box.type === 'moxie' ? <img src="/icon.png" alt="Moxie" className="w-1/2 h-1/2 lg:w-3/4 lg:h-3/4 object-contain" /> : 
                          '❌'}
                       </motion.div>
                     )}

@@ -21,7 +21,7 @@ function Home() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-screen relative overflow-hidden px-4 lg:px-0">
       {/* Animated Background Image */}
       <motion.div 
         className="absolute inset-0 z-0"
@@ -37,9 +37,9 @@ function Home() {
       ></motion.div>
       
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+      <div className="relative z-10 text-center max-w-4xl mx-auto">
         <motion.h1 
-          className="text-6xl font-bold mb-8 text-white shadow-text"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8 text-white shadow-text"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -47,7 +47,7 @@ function Home() {
           Welcome to Moxie Miner
         </motion.h1>
         <motion.p 
-          className="text-xl mb-12 text-white shadow-text"
+          className="text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-10 lg:mb-12 text-white shadow-text"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.7 }}
@@ -61,12 +61,11 @@ function Home() {
         >
           <Link 
             to="/game" 
-            className="px-8 py-4 bg-purple-600 text-white font-bold rounded-full hover:bg-purple-700 transition-colors duration-200 flex items-center justify-center space-x-2 group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="px-6 sm:px-8 py-3 sm:py-4 bg-purple-600 text-white font-bold rounded-full hover:bg-purple-700 transition-colors duration-200 flex items-center justify-center space-x-2 group shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-base sm:text-lg lg:text-xl"
           >
-            <span className="text-xl">Start Playing</span>
+            <span>Start Playing</span>
             <motion.div
               animate={{
-                x: [0, 5, 0],
                 rotate: [0, 15, 0]
               }}
               transition={{
@@ -76,7 +75,7 @@ function Home() {
               }}
               className="relative"
             >
-              <PlayIcon className="h-8 w-8 text-white group-hover:text-yellow-300 transition-colors duration-200" />
+              <PlayIcon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white group-hover:text-yellow-300 transition-colors duration-200" />
             </motion.div>
           </Link>
         </motion.div>
@@ -86,7 +85,7 @@ function Home() {
       <motion.img
         src="/moxie-2.png"
         alt="Moxie Character"
-        className="absolute bottom-0 left-0 w-64 h-64 object-contain"
+        className="absolute bottom-0 left-0 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 object-contain"
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 1.1 }}
@@ -94,7 +93,7 @@ function Home() {
       <motion.img
         src="/moxie-1.png"
         alt="Moxie Character"
-        className="absolute bottom-0 right-0 w-64 h-64 object-contain"
+        className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 object-contain"
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 1.3 }}
